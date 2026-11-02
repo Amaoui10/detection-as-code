@@ -4,3 +4,6 @@ defaults:
 expectations:
   - rule: 8b71e6c2-5d44-4f90-a318-2e61c4a79b03
     exactly: 1
+  
+  - rule: 4f6b2c91-8d3a-4e75-a1c2-9b7d6e5f3012
+    exactly: 1

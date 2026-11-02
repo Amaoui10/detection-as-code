@@ -1,0 +1,17 @@
+
+title: Local User Account Created
+id: 4f6b2c91-8d3a-4e75-a1c2-9b7d6e5f3012
+status: experimental
+description: Detects the creation of a local user account on a Windows system.
+author: Detection as Code Project
+date: 2026/11/02
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4720
+    condition: selection
+falsepositives:
+    - Legitimate user account creation by an administrator
+level: medium

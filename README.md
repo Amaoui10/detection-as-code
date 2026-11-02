@@ -1,3 +1,5 @@
+![Sigma Rules Validation](https://github.com/amaoui10/detection-as-code/actions/workflows/sigma-validation.yml/badge.svg)
+
 # Detection as Code
 
 An automated Detection as Code pipeline for validating, testing, and backtesting Windows security detection rules using Sigma, RSigma, and GitHub Actions.

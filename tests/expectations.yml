@@ -1,0 +1,6 @@
+defaults:
+  unexpected_detections: fail
+
+expectations:
+  - rule: 8b71e6c2-5d44-4f90-a318-2e61c4a79b03
+    exactly: 1

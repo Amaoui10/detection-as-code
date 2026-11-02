@@ -1,7 +1,6 @@
-
 name: Sigma Rules Validation
 
-'on':
+on:
   push:
     branches: [main]
   pull_request:
@@ -25,3 +24,22 @@ jobs:
 
       - name: Validate Sigma rules
         run: sigma check rules/windows/*.yml
+
+      - name: Install RSigma
+        run: |
+          curl -fsSL -o rsigma.tar.gz \
+            https://github.com/timescale/rsigma/releases/download/v0.25.0/rsigma-x86_64-unknown-linux-gnu.tar.gz
+          tar -xzf rsigma.tar.gz
+          sudo install -m 0755 rsigma /usr/local/bin/rsigma
+          rsigma --version
+
+      - name: Run RSigma backtest
+        run: |
+          rsigma rule backtest \
+            -r rules/windows/ \
+            --corpus tests/events/windows/ \
+            --expectations tests/expectations.yml \
+            --unexpected fail
+
+      - name: Test detection logic
+        run: python scripts/test_detection.py

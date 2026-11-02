@@ -1,0 +1,40 @@
+{"rule": "win_powershell_encoded_command",
+  "events": [
+    {
+      "name": "powershell_encoded_command",
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe -EncodedCommand SQBFAFgA",
+      "expected_match": true
+    },
+    {
+      "name": "powershell_normal",
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe -File script.ps1",
+      "expected_match": false
+    },
+    {
+      "name": "cmd_normal",
+      "Image": "C:\\Windows\\System32\\cmd.exe",
+      "CommandLine": "cmd.exe /c echo test",
+      "expected_match": false
+    },
+    {
+      "name": "pwsh_encoded_command",
+      "Image": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "CommandLine": "pwsh.exe -EncodedCommand SQBFAFgA",
+      "expected_match": true
+    },
+    {
+      "name": "powershell_lowercase_encoded",
+      "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe -encodedcommand SQBFAFgA",
+      "expected_match": true
+    },
+    {
+      "name": "cmd_with_encoded_argument",
+      "Image": "C:\\Windows\\System32\\cmd.exe",
+      "CommandLine": "cmd.exe -EncodedCommand SQBFAFgA",
+      "expected_match": false
+    }
+  ]
+}
